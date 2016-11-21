@@ -1,0 +1,153 @@
+<div class="panel">
+  <img class="bg" src="./images/bg-1.png" alt="">
+  <div class="panel-body">
+    <div class="mt-header">
+      <div class="mt-header-logo">
+        <img class="mt-header-logo-img" src="./images/logo-teacher.png" alt="">
+        <!--<h2>木言</h2>-->
+        <!--<p>MutualTalk</p>-->
+      </div>
+      <ul class="mt-header-nav">
+        <li>HOME</li>
+        <li>FEATURES</li>
+        <li>Q&A</li>
+        <li>DOWNLOAD&FOLLOW US</li>
+      </ul>
+    </div>
+    <div class="desc">
+      <p>You’ve Got An </p>
+      <p>Amazing Teaching Idea!</p>
+    </div>
+    <div class="desc-detail">
+      <p>MutualTalk is looking for teachers</p>
+      <p>who are passionate about English teaching & meeting new people,</p>
+      <p>and motivated to work with a promising company</p>
+      <p>that is growing at a fast speed in China.</p>
+    </div>
+    <aside>
+      <ul>
+        <li class="qr-code-wrap">
+          <i class="iconfont icon-apple"></i>
+          <p>Download</p>
+          <div class="qr-code-content d-apple">
+            <img class="qr-code-img" src="./images/qr_code.png" alt="">
+          </div>
+        </li>
+        <li class="qr-code-wrap">
+          <i class="iconfont icon-android"></i>
+          <p>Download</p>
+          <div class="qr-code-content d-android">
+            <img class="qr-code-img" src="./images/qr_code.png" alt="">
+          </div>
+        </li>
+        <li class="qr-code-wrap">
+          <i class="iconfont icon-wechat"></i>
+          <p>Offical Wechat</p>
+          <div class="qr-code-content d-wechat">
+            <img class="qr-code-img" src="./images/qr_code.png" alt="">
+          </div>
+        </li>
+        <li class="qr-code-wrap">
+          <i class="iconfont icon-weibo"></i>
+          <p>WeiBo</p>
+          <div class="qr-code-content d-weibo">
+            <img class="qr-code-img" src="./images/qr_code.png" alt="">
+          </div>
+        </li>
+      </ul>
+    </aside>
+  </div>
+
+</div>
+<div class="panel">
+  <img class="bg" src="./images/bg-21.png" alt="">
+  <div class="panel-body">
+    <ul class="icon-intro">
+      <li>
+        <div class="icon-wrap"><img class="extra" src="./images/icon-extra.png" alt=""></div>
+        <p>Earn</p>
+        <p>Extra Money</p>
+      </li>
+      <li>
+        <div class="icon-wrap"><img src="./images/icon-suishi.png" alt="">
+        </div>
+        <p>Anytime</p>
+        <p>& Anywhere</p>
+      </li>
+      <li>
+        <div class="icon-wrap"><img src="./images/icon-manage.png" alt="">
+        </div>
+        <p>Manage your</p>
+        <p>Online Students</p>
+      </li>
+      <li>
+        <div class="icon-wrap"><img class="brand" src="./images/icon-brand.png" alt=""></div>
+        <p>Build your</p>
+        <p>personal brand</p>
+      </li>
+    </ul>
+
+    <mt-intro-card *ngFor="let card of cards" [introNo]="card.no"
+                   [introDesc]="card.intro"></mt-intro-card>
+  </div>
+</div>
+<div class="panel">
+  <img class="bg" src="./images/bg-31.png" alt="">
+  <div class="panel-body">
+    <h2 class="qa">Q&A</h2>
+    <mt-qa-card *ngFor="let item of qaList" [@flyInOut]="'in'" [qaCard]="item" [isActive]="item==activedQaCard"
+                (itemClick)="mtQaCardHandler($event)"></mt-qa-card>
+  </div>
+</div>
+<div class="panel">
+  <img class="bg" src="./images/bg-4.png" alt="">
+  <div class="panel-body">
+    <ul class="download">
+      <li>
+        <button class="btn btn-circle btn-balanced qr-code-wrap">
+          <i class="iconfont icon-apple"></i>
+          APP Store下载
+          <span class="qr-code-content pull-right q-apple">
+            <img class="qr-code-img" src="./images/qr_code.png" alt="">
+          </span>
+        </button>
+        <button class="btn btn-circle btn-balanced qr-code-wrap">
+          <i class="iconfont icon-android"></i>
+          Android 版下载
+          <span class="qr-code-content pull-right q-android">
+            <img class="qr-code-img" src="./images/qr_code.png" alt="">
+          </span>
+        </button>
+      </li>
+      <li>
+        <button class="btn btn-circle btn-balanced-clear qr-code-wrap">
+          <i class="iconfont icon-wechat"></i>
+          微信公众号
+          <span class="qr-code-content q-wx">
+            <img class="qr-code-img" src="./images/qr_code.png" alt="">
+          </span>
+        </button>
+
+        <button class="btn btn-circle btn-balanced-clear qr-code-wrap">
+          <i class="iconfont icon-weibo"></i>
+          新浪微博
+          <span class="qr-code-content q-wb">
+            <img class="qr-code-img" src="./images/qr_code.png" alt="">
+          </span>
+        </button>
+      </li>
+    </ul>
+  </div>
+</div>
+<footer class="mt-footer">
+  <ul class="f-join-us">
+    <li>Contact us</li>
+    <li>Join us</li>
+  </ul>
+  <ul class="f-company-info">
+    <li><i class="iconfont icon-phone"></i>
+      <span>021-80392390</span></li>
+    <li><i class="iconfont icon-address"></i>
+      <span>Shanghai Hunge Information Technology Co.,Ltd.</span></li>
+  </ul>
+</footer>

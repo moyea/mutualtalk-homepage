@@ -1,0 +1,187 @@
+<div id="wrapper">
+  <div class="panel">
+
+    <img class="bg" src="./images/bg-1.png" alt="">
+    <div class="panel-body">
+      <div class="mt-header">
+        <div class="mt-header-logo">
+
+          <!--<img class="mt-header-logo-img" src="./images/logo-green.png" alt="">-->
+          <!--<h2>木言</h2>-->
+          <!--<p>MutualTalk</p>-->
+          <img class="mt-header-logo-img" src="./images/logo-student.png" alt="">
+        </div>
+        <ul class="mt-header-nav">
+          <li>首页</li>
+          <li (click)="scrollTo('feature')">特点</li>
+          <li (click)="scrollTo('down')">下载与关注</li>
+        </ul>
+      </div>
+      <div class="desc">
+        <p>木言</p>
+        <p>是一款全新的</p>
+        <p>在线英语学习平台，</p>
+        <p>以学习者为核心，</p>
+        <p>打造“英语语感”的学习环境！</p>
+      </div>
+      <div class="desc-detail">
+        <p>在木言，</p>
+        <p>英语学习者可以根据</p>
+        <p>自己的喜好和水平选择最适合自己的英语老师和英语课程。</p>
+        <p>在MutualTalk，</p>
+        <p>英语老师可以让自己的教学技能变现。</p>
+        <p>这是一款造福英语学习者和英语老师的APP！</p>
+        <p>一对一随时随地陪练，带你流利说英语。</p>
+      </div>
+      <aside>
+        <ul>
+          <li class="qr-code-wrap">
+            <i class="iconfont icon-apple"></i>
+            <p>APP Store下载</p>
+            <div class="qr-code-content d-apple">
+              <img class="qr-code-img" src="./images/qr_code.png" alt="">
+            </div>
+          </li>
+          <li class="qr-code-wrap">
+            <i class="iconfont icon-android"></i>
+            <p>Android版下载</p>
+            <div class="qr-code-content d-android">
+              <img class="qr-code-img" src="./images/qr_code.png" alt="">
+            </div>
+          </li>
+          <li class="qr-code-wrap">
+            <i class="iconfont icon-wechat"></i>
+            <p>微信公众号</p>
+            <div class="qr-code-content d-wechat">
+              <img class="qr-code-img" src="./images/qr_code.png" alt="">
+            </div>
+          </li>
+          <li class="qr-code-wrap">
+            <i class="iconfont icon-weibo"></i>
+            <p>新浪微博</p>
+            <div class="qr-code-content d-weibo">
+              <img class="qr-code-img" src="./images/qr_code.png" alt="">
+            </div>
+          </li>
+        </ul>
+      </aside>
+    </div>
+
+  </div>
+  <div class="panel" id="feature">
+    <img class="bg" src="./images/bg-2.png" alt="">
+    <div class="panel-body">
+      <ul class="icon-intro">
+        <li>
+          <div class="icon-wrap"><img src="./images/icon-course.png" alt=""></div>
+          <p>名师授课</p>
+          <p>专属课程</p>
+        </li>
+        <li>
+          <div class="icon-wrap"><img src="./images/icon-o2o.png" alt="">
+          </div>
+          <p>一对一授课</p>
+          <p>短时高效</p>
+        </li>
+        <li>
+          <div class="icon-wrap"><img src="./images/icon-price.png" alt="">
+          </div>
+          <p>单价低</p>
+          <p>课程灵活</p>
+        </li>
+        <li>
+          <div class="icon-wrap"><img src="./images/icon-suishi.png" alt=""></div>
+          <p>随时随地</p>
+          <p>想学就学</p>
+        </li>
+      </ul>
+
+      <mt-intro-card *ngFor="let card of cards" [introNo]="card.no"
+                     [introDesc]="card.intro"></mt-intro-card>
+    </div>
+  </div>
+  <div class="panel" id="down">
+    <img class="bg" src="./images/bg-5.png" alt="">
+    <div class="panel-body">
+      <ul class="download">
+        <li>
+          <button class="btn btn-circle btn-balanced qr-code-wrap">
+            <i class="iconfont icon-apple"></i>
+            APP Store下载
+            <span class="qr-code-content pull-right q-apple">
+            <img class="qr-code-img" src="./images/qr_code.png" alt="">
+          </span>
+          </button>
+          <button class="btn btn-circle btn-balanced qr-code-wrap">
+            <i class="iconfont icon-android"></i>
+            Android 版下载
+            <span class="qr-code-content pull-right q-android">
+            <img class="qr-code-img" src="./images/qr_code.png" alt="">
+          </span>
+          </button>
+        </li>
+        <li>
+          <button class="btn btn-circle btn-balanced-clear qr-code-wrap">
+            <i class="iconfont icon-wechat"></i>
+            微信公众号
+            <span class="qr-code-content q-wx">
+            <img class="qr-code-img" src="./images/qr_code.png" alt="">
+          </span>
+          </button>
+
+          <button class="btn btn-circle btn-balanced-clear qr-code-wrap">
+            <i class="iconfont icon-weibo"></i>
+            新浪微博
+            <span class="qr-code-content q-wb">
+            <img class="qr-code-img" src="./images/qr_code.png" alt="">
+          </span>
+          </button>
+        </li>
+      </ul>
+      <form>
+        <div class="item-input">
+          <input type="text" placeholder="姓名" name="username" [(ngModel)]="reserveInfo.username">
+        </div>
+        <div class="item-input item-input-inset">
+          <input type="text" placeholder="手机号" name="mobile" [(ngModel)]="reserveInfo.mobile">
+          <button type="button" (click)="getVerifyCode()">获取验证码</button>
+        </div>
+        <div class="item-input">
+          <input type="text" placeholder="验证码" name="verifyCode"
+                 [(ngModel)]="reserveInfo.verifyCode">
+        </div>
+        <div class="item-input item-input-select">
+          <input type="text" (keydown)="inputSelectKeyDown($event)" name="courseLabel"
+                 [(ngModel)]="reserveInfo.courseLabel" placeholder="课程类别">
+          <ul class="course-label">
+            <li (click)="reserveInfo.courseLabel='经典英语'">经典英语</li>
+            <li (click)="reserveInfo.courseLabel='出国留学'">出国留学</li>
+            <li (click)="reserveInfo.courseLabel='雅思托福'">雅思托福</li>
+            <li (click)="reserveInfo.courseLabel='职场商务'">职场商务</li>
+            <li (click)="reserveInfo.courseLabel='少儿英语'">少儿英语</li>
+            <li (click)="reserveInfo.courseLabel='零基础'">零基础</li>
+            <li (click)="reserveInfo.courseLabel='兴趣爱好'">兴趣爱好</li>
+          </ul>
+        </div>
+
+        <div class="yy-btn btn-balanced" (click)="reserved()">预约</div>
+
+      </form>
+
+    </div>
+
+  </div>
+  <footer class="mt-footer">
+    <ul class="f-join-us">
+      <li>详细介绍</li>
+      <li>商务合作</li>
+      <li>加入我们</li>
+    </ul>
+    <ul class="f-company-info">
+      <li><i class="iconfont icon-phone"></i>
+        <span>021-80392390</span></li>
+      <li><i class="iconfont icon-address"></i>
+        <span>上海市徐汇区田林路140号28号楼3-45单元</span></li>
+    </ul>
+  </footer>
+</div>

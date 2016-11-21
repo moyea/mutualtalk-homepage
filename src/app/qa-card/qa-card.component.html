@@ -1,0 +1,14 @@
+<div class="qa-card" (click)="itemClick.emit(qaCard)">
+  <div class="qa-icon">
+    <img [src]="isActive?qaCard.icon_active:qaCard.icon" alt="">
+  </div>
+  <div class="content">
+    <div class="q" [ngClass]="{'active':isActive}">
+      {{qaCard.question}}
+    </div>
+    <div class="a" *ngIf="isActive">
+      <p *ngFor="let anwser of qaCard.answers">{{anwser}}</p>
+    </div>
+  </div>
+
+</div>

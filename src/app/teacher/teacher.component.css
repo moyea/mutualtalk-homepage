@@ -1,0 +1,30 @@
+
+
+.desc, .desc-detail {
+  margin-left: 0;
+  text-align: center;
+}
+
+.icon-intro li .extra {
+  width: 96px;
+}
+
+.icon-intro li .brand {
+  width: 96px;
+}
+
+mt-qa-card {
+  display: block;
+  width: 80%;
+  margin-left: 10%;
+}
+
+.qa {
+  font-family: PingFangSC-Medium, sans-serif;
+  color: #fff;
+  text-align: center;
+  font-size: 50px;
+  margin-top: 5%;
+  margin-bottom: 8%;
+}
+
