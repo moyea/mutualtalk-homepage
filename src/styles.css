@@ -659,6 +659,7 @@ body {
 
 .f-company-info li {
   margin-right: 30px;
+  cursor: pointer;
 }
 
 .btn {
@@ -881,6 +882,7 @@ aside li:hover {
   margin: 5px 0 0;
   font-size: 16px;
   text-align: right;
+  cursor: pointer;
 }
 
 .mt-header-nav li {
