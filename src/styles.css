@@ -429,6 +429,10 @@ textarea {
   box-sizing: border-box;
 }
 
+html, body {
+  height: 100%;
+}
+
 ul, p {
   margin: 0;
   padding: 0;
@@ -808,7 +812,7 @@ aside li:hover {
   line-height: 156px;
 }
 
-.icon-intro li .icon-wrap:hover{
+.icon-intro li .icon-wrap:hover {
   transform: rotateY(360deg);
   transform-origin: 50% 50% 0;
   transition: transform 800ms ease-in-out;
@@ -837,6 +841,7 @@ aside li:hover {
   padding: 10px 10% 0;
   display: flex;
   flex-wrap: nowrap;
+  height: 80px;
   justify-content: space-between;
   color: #fff;
 }
@@ -921,3 +926,38 @@ aside li:hover {
   vertical-align: -1px;
 }
 
+.alert {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+
+}
+
+.alert.fade {
+  opacity: 0;
+  z-index: -1;
+  -webkit-transition: opacity .15s linear;
+  -o-transition: opacity .15s linear;
+  transition: opacity .15s linear;
+}
+
+.alert.fade.in {
+  z-index: 100;
+  opacity: 1;
+}
+
+.alert.alert-error {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+}
+
+.alert.alert-success {
+  color: #fff;
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+}

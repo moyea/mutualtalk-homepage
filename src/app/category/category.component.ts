@@ -34,8 +34,9 @@ import {Router} from "@angular/router";
       position: absolute;
       bottom: 0;
       margin-bottom: -10%;
-      width: 60%;
-      left: 20%;
+      width: 190px;
+      left: 50%;
+      margin-left: -95px;
       height: 80px;
       z-index: 5;
     }

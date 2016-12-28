@@ -39,28 +39,28 @@
             <i class="iconfont icon-apple"></i>
             <p>APP Store下载</p>
             <div class="qr-code-content d-apple">
-              <img class="qr-code-img" src="./images/qr_code.png" alt="">
+              <img class="qr-code-img" src="./images/ios-learner.png" alt="">
             </div>
           </li>
           <li class="qr-code-wrap">
             <i class="iconfont icon-android"></i>
             <p>Android版下载</p>
             <div class="qr-code-content d-android">
-              <img class="qr-code-img" src="./images/qr_code.png" alt="">
+              <img class="qr-code-img" src="./images/android-learner.png" alt="">
             </div>
           </li>
           <li class="qr-code-wrap">
             <i class="iconfont icon-wechat"></i>
             <p>微信公众号</p>
             <div class="qr-code-content d-wechat">
-              <img class="qr-code-img" src="./images/qr_code.png" alt="">
+              <img class="qr-code-img" src="./images/wechat.png" alt="">
             </div>
           </li>
           <li class="qr-code-wrap">
             <i class="iconfont icon-weibo"></i>
             <p>新浪微博</p>
             <div class="qr-code-content d-weibo">
-              <img class="qr-code-img" src="./images/qr_code.png" alt="">
+              <img class="qr-code-img" src="./images/weibo.png" alt="">
             </div>
           </li>
         </ul>
@@ -109,14 +109,14 @@
             <i class="iconfont icon-apple"></i>
             APP Store下载
             <span class="qr-code-content pull-right q-apple">
-            <img class="qr-code-img" src="./images/qr_code.png" alt="">
+            <img class="qr-code-img" src="./images/ios-learner.png" alt="">
           </span>
           </button>
           <button class="btn btn-circle btn-balanced qr-code-wrap">
             <i class="iconfont icon-android"></i>
             Android 版下载
             <span class="qr-code-content pull-right q-android">
-            <img class="qr-code-img" src="./images/qr_code.png" alt="">
+            <img class="qr-code-img" src="./images/android-learner.png" alt="">
           </span>
           </button>
         </li>
@@ -125,7 +125,7 @@
             <i class="iconfont icon-wechat"></i>
             微信公众号
             <span class="qr-code-content q-wx">
-            <img class="qr-code-img" src="./images/qr_code.png" alt="">
+            <img class="qr-code-img" src="./images/wechat.png" alt="">
           </span>
           </button>
 
@@ -133,7 +133,7 @@
             <i class="iconfont icon-weibo"></i>
             新浪微博
             <span class="qr-code-content q-wb">
-            <img class="qr-code-img" src="./images/qr_code.png" alt="">
+            <img class="qr-code-img" src="./images/weibo.png" alt="">
           </span>
           </button>
         </li>
@@ -144,7 +144,7 @@
         </div>
         <div class="item-input item-input-inset">
           <input type="text" placeholder="手机号" name="mobile" [(ngModel)]="reserveInfo.mobile">
-          <button type="button" (click)="getVerifyCode()">获取验证码</button>
+          <button type="button" (click)="getVerifyCode()" [disabled]="disabledGainCodeBtn">{{gainCodeBtnText}}</button>
         </div>
         <div class="item-input">
           <input type="text" placeholder="验证码" name="verifyCode"

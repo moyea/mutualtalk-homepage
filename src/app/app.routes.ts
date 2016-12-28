@@ -13,7 +13,7 @@ const appRoutes: Routes = [
     component: LearnerComponent
   },
   {
-    path: 'teacher',
+    path: 'totur',
     component: TeacherComponent
   }
 ];
