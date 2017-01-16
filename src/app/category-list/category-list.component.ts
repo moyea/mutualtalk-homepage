@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Category} from "../category";
+import {DataService} from "../services/data.service";
 
 @Component({
   selector: 'mt-category-list',
@@ -83,21 +84,9 @@ import {Category} from "../category";
 export class CategoryListComponent implements OnInit {
 
 
-  categories: Category[] = [{
-    id: 'learner',
-    linkUrl: '/learner',
-    image: './images/learner.png',
-    zh: '我是学习者',
-    en: 'I`m a Learner',
-  }, {
-    id: 'teacher',
-    linkUrl: '/totur',
-    image: './images/teacher.png',
-    zh: '我是老师',
-    en: 'I`m a Teacher',
-  }];
+  categories: Category[] = this.data.categorys;
 
-  constructor() {
+  constructor(private data: DataService) {
   }
 
   ngOnInit() {

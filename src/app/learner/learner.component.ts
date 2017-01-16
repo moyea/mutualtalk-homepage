@@ -3,6 +3,7 @@ import {Http} from "@angular/http";
 import 'rxjs/add/operator/toPromise';
 import {showAlert} from "../app.utils";
 import {environment} from "../../environments/environment";
+import {DataService} from "../services/data.service";
 @Component({
   selector: 'mt-learner',
   templateUrl: './learner.component.html',
@@ -23,26 +24,10 @@ export class LearnerComponent implements OnInit,AfterViewInit {
   private gainCodeBtnText = '获取验证码';
   private timer = 60;
 
-  constructor(private http: Http) {
+  constructor(private http: Http, private data: DataService) {
   }
 
-  cards = [{
-    no: '01',
-    intro: '木言拥有专属于您的名师名课，内容覆盖经典英语、出国留学、雅思' +
-    '托福、职场商务、少儿英语、零基础、兴趣爱好等热点知识的系列专题。'
-  }, {
-    no: '02',
-    intro: '一对一中外教将以全部的专注力与您互动练习，确保您有超过一半的' +
-    '开口时间，快速建立英语语感，每节课25分钟，短时高频，更见效果。'
-  }, {
-    no: '03',
-    intro: '“课程套餐贵，门槛高，不喜欢老师”，通通不用愁，木言支持单节' +
-    '课程购买，不喜欢的老师任性换，灵活择课。'
-  }, {
-    no: '04',
-    intro: '真实的课堂互动，可以随时随地与老师进行学习交流；大大降低了' +
-    '学习成本。'
-  }];
+  cards = this.data.cards.learner;
 
   ngOnInit() {
   }

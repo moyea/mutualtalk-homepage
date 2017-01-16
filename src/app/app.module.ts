@@ -11,6 +11,7 @@ import {appRouting} from "./app.routes";
 import {CategoryListComponent} from './category-list/category-list.component';
 import {IntroCardComponent} from './intro-card/intro-card.component';
 import {QaCardComponent} from './qa-card/qa-card.component';
+import {DataService} from "./services/data.service";
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import {QaCardComponent} from './qa-card/qa-card.component';
     appRouting
   ],
   bootstrap: [AppComponent],
+  providers: [DataService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule {
