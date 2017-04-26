@@ -5,7 +5,8 @@
 
 export const environment = {
   production: false,
-  endPoint: 'http://localhost:8085',
+  endPoint: 'http://localhost:8080',
   sendSmsUrl: '/api/gain-verify-code',
-  reserveUrl: '/api/reserve'
+  reserveUrl: '/api/reserve',
+  applyToTeacher: '/api/apply-to-teacher'
 };

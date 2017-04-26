@@ -7,11 +7,12 @@ import {AppComponent} from './app.component';
 import {CategoryComponent} from './category/category.component';
 import {LearnerComponent} from './learner/learner.component';
 import {TeacherComponent} from './teacher/teacher.component';
-import {appRouting} from "./app.routes";
+import {appRouting} from './app.routes';
 import {CategoryListComponent} from './category-list/category-list.component';
 import {IntroCardComponent} from './intro-card/intro-card.component';
 import {QaCardComponent} from './qa-card/qa-card.component';
-import {DataService} from "./services/data.service";
+import {DataService} from './services/data.service';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import {DataService} from "./services/data.service";
     BrowserModule,
     FormsModule,
     HttpModule,
+    BrowserAnimationsModule,
     appRouting
   ],
   bootstrap: [AppComponent],

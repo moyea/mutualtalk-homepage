@@ -7,7 +7,7 @@ import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 })
 export class QaCardComponent implements OnInit {
 
-  @Input() isActive: boolean = false;
+  @Input() isActive = false;
   @Input() qaCard;
   @Output() itemClick = new EventEmitter();
 

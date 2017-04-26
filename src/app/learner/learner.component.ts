@@ -1,33 +1,32 @@
-import {Component, OnInit, AfterViewInit} from '@angular/core';
-import {Http} from "@angular/http";
+import {Component, OnInit} from '@angular/core';
+import {Http} from '@angular/http';
 import 'rxjs/add/operator/toPromise';
-import {showAlert} from "../app.utils";
-import {environment} from "../../environments/environment";
-import {DataService} from "../services/data.service";
+import {showAlert, scrollToDom} from '../app.utils';
+import {environment} from '../../environments/environment';
+import {DataService} from '../services/data.service';
 @Component({
   selector: 'mt-learner',
   templateUrl: './learner.component.html',
   styleUrls: ['./learner.component.css'],
 })
 
-export class LearnerComponent implements OnInit,AfterViewInit {
-  ngAfterViewInit(): void {
-    // window.onscroll = function (e) {
-    //   console.log(e);
-    // };
-  }
+
+export class LearnerComponent implements OnInit {
 
   private verifyCodeUrl = environment.endPoint + environment.sendSmsUrl;
   private reserveInfoUrl = environment.endPoint + environment.reserveUrl;
   private verifyCode = '';
-  private disabledGainCodeBtn = false;
-  private gainCodeBtnText = '获取验证码';
+
+  disabledGainCodeBtn = false;
+  gainCodeBtnText = '获取验证码';
   private timer = 60;
+
+  scrollTo = scrollToDom;
+  cards = this.data.cards.learner;
+  reserveInfo: any = {};
 
   constructor(private http: Http, private data: DataService) {
   }
-
-  cards = this.data.cards.learner;
 
   ngOnInit() {
   }
@@ -36,10 +35,9 @@ export class LearnerComponent implements OnInit,AfterViewInit {
     e.returnValue = false;
   }
 
-  reserveInfo: any = {};
 
   getVerifyCode() {
-    let mobile = this.reserveInfo.mobile;
+    const mobile = this.reserveInfo.mobile;
     if (!mobile || mobile.length < 1) {
       return showAlert('error', '无效的手机号码！');
     }
@@ -48,8 +46,9 @@ export class LearnerComponent implements OnInit,AfterViewInit {
     }
     this.timer = 60;
     this.disabledGainCodeBtn = true;
-    let timerId = setInterval(() => {
-      if (this.timer == 0) {
+
+    const timerId = setInterval(() => {
+      if (this.timer === 0) {
         this.gainCodeBtnText = '获取验证码';
         this.disabledGainCodeBtn = false;
         clearInterval(timerId);
@@ -58,22 +57,25 @@ export class LearnerComponent implements OnInit,AfterViewInit {
       }
       this.timer--;
     }, 1000);
-    let url = this.verifyCodeUrl + "?mobile=" + this.reserveInfo.mobile;
+
+    const url = this.verifyCodeUrl + '?mobile=' + this.reserveInfo.mobile;
     this.http.get(url)
       .toPromise()
       .then(resp => {
-        let data = resp.json();
-        let alertType = data.code == 200 ? 'success' : 'error';
-        showAlert(alertType, data.msg);
-        this.verifyCode = data.result
+        const data = resp.json();
+        if (data.code === 0) {
+          showAlert('success', '验证码已发送到你的手机，请注意查收');
+        } else {
+          showAlert('error', '验证码发送失败');
+        }
       });
   }
 
   reserved() {
-    let mobile = this.reserveInfo.mobile || '';
-    let name = this.reserveInfo.username || '';
-    let category = this.reserveInfo.courseLabel || '';
-    let code = this.reserveInfo.verifyCode || '';
+    const mobile = this.reserveInfo.mobile || '';
+    const name = this.reserveInfo.username || '';
+    const category = this.reserveInfo.courseLabel || '';
+    const code = this.reserveInfo.verifyCode || '';
     if (name.length < 1) {
       return showAlert('error', '无效的用户名');
     }
@@ -87,20 +89,23 @@ export class LearnerComponent implements OnInit,AfterViewInit {
     if (code.length < 1) {
       return showAlert('error', '请先获取验证码');
     }
-    if (this.verifyCode != code) {
+    if (this.verifyCode !== code) {
       return showAlert('error', '无效的验证码');
     }
     if (category.length < 1) {
       return showAlert('error', '无效的课程类别');
     }
-    let url = this.reserveInfoUrl + "?mobile=" + mobile + '&name=' + name +
-      "&category=" + category;
+    const url = this.reserveInfoUrl + '?mobile=' + mobile + '&name=' + name +
+      '&category=' + category;
     this.http.get(url)
       .toPromise()
       .then(resp => {
-        let data = resp.json();
-        let alertType = data.code == 200 ? 'success' : 'error';
-        showAlert(alertType, data.msg);
+        const data = resp.json();
+        if (data.code === 0) {
+          showAlert('success', '我们已经收到了你的预约，会尽快处理');
+        } else {
+          showAlert('error', '预约失败，请稍后重试');
+        }
       });
   }
 }
